@@ -1,0 +1,261 @@
+:root {
+  --background: #f8f9fa;
+  --border: #eaecf0;
+  --link: #635bff;
+  --text: #202122;
+  --muted: #72777d;
+  --accent: #ff6b6b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: Inter, sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 3px #00000010;
+}
+
+.header-content,
+.main-content,
+footer {
+  width: min(100% - 32px, 896px);
+  margin: 0 auto;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #d3d6da;
+  border-radius: 4px;
+  border-color: var(--link);
+  background: linear-gradient(135deg, var(--link), var(--accent));
+  color: white;
+  font: bold 24px Lora, serif;
+}
+
+.brand-name,
+h1,
+h2,
+h3 {
+  font-family: Lora, serif;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--link);
+}
+
+.search-form {
+  position: relative;
+  flex: 1;
+}
+
+.search-form input {
+  width: 100%;
+  padding: 12px 44px 12px 40px;
+  border: 1px solid #a2a9b1;
+  border-radius: 24px;
+  background: var(--background);
+  font: inherit;
+}
+
+.search-form input:focus {
+  outline: 2px solid var(--link);
+  outline-offset: 1px;
+}
+
+.search-icon,
+.clear-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #72777d;
+}
+
+.search-icon {
+  left: 14px;
+}
+
+.clear-button {
+  right: 14px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.main-content {
+  flex: 1;
+  padding: 24px 0;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.empty-state h1 {
+  margin: 0 0 8px;
+  color: var(--text);
+  font: 500 20px Inter, sans-serif;
+}
+
+.empty-state p {
+  max-width: 500px;
+}
+
+.empty-icon {
+  margin-bottom: 16px;
+  font-size: 48px;
+  opacity: 0.5;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 16px;
+  border: 3px solid #0000001a;
+  border-top-color: var(--link);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.error-message {
+  padding: 12px 16px;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.results-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.results-header h2 {
+  margin: 0;
+  font: 500 18px Inter, sans-serif;
+}
+
+.results-header span,
+small {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.results {
+  display: grid;
+  gap: 16px;
+}
+
+.result-card {
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 1px 3px #0000000d;
+}
+
+.result-card a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.result-card h3 {
+  margin: 0 0 8px;
+  color: var(--link);
+  font-size: 20px;
+}
+
+.result-card h3 i {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.result-card p {
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+
+.searchmatch {
+  padding: 0 2px;
+  border-radius: 2px;
+  background: #ffff0066;
+  font-weight: 600;
+}
+
+footer {
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  text-align: center;
+  font-size: 14px;
+}
+
+footer a {
+  color: var(--link);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .brand {
+    align-self: center;
+  }
+}
